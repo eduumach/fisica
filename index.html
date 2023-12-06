@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Tela 2</title>
+    <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="buttons" id="voltarPaginaInicial" href="">Página Inicial</a>
+    <div class="containerPrincipalSistemas">
+        <span id="tituloPagina">Campo Elétrico (distribuição contínua de carga)</span>
+        <span id="subtituloPagina">Escolha um problema: </span>
+        <div class="problemas">
+            <div class="buttons" onclick="selecionarSistema(1)">Sistema 3.1</div>
+            <div class="buttons" onclick="selecionarSistema(2)">Sistema 3.2</div>
+            <div class="buttons" onclick="selecionarSistema(3)">Sistema 3.3</div>
+        </div>
+        <!-- Sistema 1 -->
+        <div class="sistemas" id="sistema3_1">
+            <div class="sistemaInfo">
+                <span class="titulo">Sistema 3.1</span>
+                <img src="./imgs/sistema21.png" class="imagemSistema">
+            </div>
+            <div class="entradas">
+                <select class="selecionar_variavel_achar" id="choose3.1">
+                    <option value=null>Selecione o tipo de variável desejada</option>
+                    <option value="V">V - Potencial elétrico</option>
+                    <option value="Q">Q - Carga elétrica</option>
+                    <option value="d">d - Distância</option>
+                </select>
+                <div class="campos_entrada" id="campos_entrada1">
+                </div>
+            </div>
+        </div>
+        <!-- Sistema 2 -->
+        <div class="sistemas" id="sistema3_2">
+            <div class="sistemaInfo">
+                <span class="titulo">Sistema 3.2</span>
+                <img src="./imgs/sistema21.png" class="imagemSistema">
+            </div>
+            <div class="entradas">
+                <select class="selecionar_variavel_achar" id="choose3.2">
+                    <option value=null>Selecione se quer calcular positivo ou negativo</option>
+                    <option value="Positivo">Positivo</option>
+                    <option value="Negativo">Negativo</option>
+                </select>
+                <div class="campos_entrada" id="campos_entrada2">
+                </div>
+            </div>
+        </div>
+        <!-- Sistema 2 -->
+        <div class="sistemas" id="sistema3_3">
+            <div class="sistemaInfo">
+                <span class="titulo">Sistema 3.3</span>
+                <img src="./imgs/sistema21.png" class="imagemSistema">
+            </div>
+            <div class="entradas">
+                <!-- <select class="selecionar_variavel_achar" id="choose3.3">
+                    
+                </select> -->
+                <div class="campos_entrada" id="campos_entrada3">
+                    <span>Formula: </span>
+                    <input class="entradaNumeros" type="string" id="formula3_3" step="0.01">
+                    <span>x - ...</span>
+                    <input class="entradaNumeros" type="string" id="X3_3" step="0.01">
+                    <span>y - ...</span>
+                    <input class="entradaNumeros" type="string" id="Y3_3" step="0.01">
+                    <span>z - ...</span>
+                    <input class="entradaNumeros" type="string" id="Z3_3" step="0.01">
+                    <div class="buttons" onclick="calcular3_3()">Calcular</div>
+                </div>
+            </div>
+        </div>
+        <!-- ISSO EH PARA TODOS NAO PARA CADA SISTEMA CARALHO -->
+        <div class="resultados">
+            <span class="resultado_resumido"></span>
+            <span class="resultado_completo"></span>
+        </div>        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.6.0/math.min.js"></script>
+    <script src="script.js" ></script>
+    <script src="conversor.js" ></script>
+    <script src="Scripts/3.1.js"></script>
+    <script src="Scripts/3.2.js"></script>
+    <script src="Scripts/3.3.js"></script>
+</body>
+</html>

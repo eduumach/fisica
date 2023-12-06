@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: 'Quantico', sans-serif;
+    overflow-x: hidden;
+}
+
+#voltarPaginaInicial {
+    position: flex;
+    top: 0; left: 0;
+    margin: 20px;
+    width: 10%;
+    text-decoration: none;
+}
+
+.containerPrincipalSistemas {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+#tituloPagina {
+    font-size: 3em;
+}
+#subtituloPagina {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.problemas {
+    display: flex;
+    width: 70vw;
+    justify-content: center;
+    align-items: center; 
+}
+
+.sistemas {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+.campos_entrada {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    background-color: #8E12DF;
+    width: 250px;
+    border-radius: 8px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    font-size: 1.2em;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 10px;
+    user-select: none;
+    color: white;
+}
+
+.resultados {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultado_completo {
+    display: none;
+}
+
+
+/* Scroll */
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: noe;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+/* Selects */
+.selecionar_variavel_achar {
+    width: 300px;
+    height: 59px;
+    border-radius: 7px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Quantico', sans-serif;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.entradaNumeros {
+    width: 300px;
+    height: 30px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+.sistemaInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.titulo {
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+.imagemSistema {
+    width: 25vw;
+    border: 2px dashed #8E12DF;
+    border-radius: 10px;
+}
