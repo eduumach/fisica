@@ -55,6 +55,7 @@ function diferencaPotencial(K, Q, d) {
     const resultado_base10 = transformToScientificNotation(resultado);
     resultadoCompleto.innerHTML += `$$ V = ${resultado_base10} V $$`;
     resultadoResumido.innerHTML += `$$ V = ${resultado_base10} V $$`;
+    resultadoResumido.innerHTML += `<p>O resultado em volts do potencial elétrico no ponto p gerado pela carga Q</p>`
 }
 
 function cargaTotal(K, V, d) {
@@ -71,6 +72,7 @@ function cargaTotal(K, V, d) {
     const resultado_base10 = transformToScientificNotation(resultado);
     resultadoCompleto.innerHTML += `$$ Q = ${resultado_base10} C $$`;
     resultadoResumido.innerHTML += `$$ Q = ${resultado_base10} C $$`;
+    resultadoResumido.innerHTML += `<p>O resultado em coulombs da quantidade de carga é encontrado a partir do pontencial eletrico no ponto p</p>`
 }
 
 function distancia(K, V, Q) {
@@ -87,6 +89,7 @@ function distancia(K, V, Q) {
     const resultado_base10 = transformToScientificNotation(resultado);
     resultadoCompleto.innerHTML += `$$ d = ${resultado_base10} m $$`;
     resultadoResumido.innerHTML += `$$ d = ${resultado_base10} m $$`;
+    resultadoResumido.innerHTML += `<p>O resultado em metros da distancia do ponto p há carga , é encontrada através da relação entre pontencial elétrico e a  carga</p>`
 }
 
 function calcular3_1() {

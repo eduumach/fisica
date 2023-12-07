@@ -53,6 +53,7 @@ function posicaoPositiva(d, Q1, Q2) {
     const resultado_base10 = transformToScientificNotation(resultado);
     resultadoCompleto.innerHTML += `$$ x=${resultado_base10} m$$`;
     resultadoResumido.innerHTML += `$$ x=${resultado_base10} m$$`;
+    resultadoResumido.innerHTML += `<p>O resultado encontrado para a equação Positiva é o valor encontrado a cima do ponto.</p>`
 }
 
 function posicaoNegativa(d, Q1, Q2) {
@@ -86,6 +87,8 @@ function posicaoNegativa(d, Q1, Q2) {
     const resultado_base10 = transformToScientificNotation(resultado);
     resultadoCompleto.innerHTML += `$$ x=${resultado_base10} m$$`;
     resultadoResumido.innerHTML += `$$ x=${resultado_base10} m$$`;
+    resultadoResumido.innerHTML += `<p>O resultado encontrado para a equação Negativa é o valor encontrado a cima do ponto.</p>`
+
 }
 
 
@@ -101,6 +104,7 @@ function calcular3_2() {
     Q1 = math.abs(Q1);
     Q2 = math.abs(Q2);
 
+    resultadoResumido.innerHTML += `Quando somamos o modulo do Potencial da Carga 1 mais o modulo do Potencial da Carga 2, chegamos a uma equação com duas soluções, uma positiva e uma negativa.`;
     if (select32.value == "Positivo") {
         posicaoPositiva(d, Q1, Q2);
     } else if (select32.value == "Negativo") {

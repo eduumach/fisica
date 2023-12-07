@@ -27,11 +27,13 @@ function calculateComVariaveis(expression, variables) {
 
     let finalExpressionNegative = '';
     let finalExpression = '';
+    let resultadoE = 0;
 
     for (const key in variableCalculations) {
         const { negative, result } = variableCalculations[key];
         finalExpressionNegative += `(${negative}${equivalent[key]}) + `;
         finalExpression += `(${result}${equivalent[key]}) + `;
+        resultadoE += math.pow(result, 2);
         resultadoResumido.innerHTML += `<p>Valor do Campo Elétrico (E) no eixo ${key}: ${negative}</p>`;
     }
 
@@ -40,9 +42,13 @@ function calculateComVariaveis(expression, variables) {
 
     finalExpressionNegative = finalExpressionNegative.replace(/\+ $/, '');
     finalExpression = finalExpression.replace(/\+ $/, '');
+    resultadoE = math.sqrt(resultadoE);
 
     resultadoResumido.innerHTML += `$$ \\overrightarrow{E}=(${finalExpressionNegative}) $$`;
+    resultadoResumido.innerHTML += `Formula do Campo Elétrico obtida a partir da formula do Potencial Elétrico.`;
     resultadoResumido.innerHTML += `$$ \\overrightarrow{E}=(${finalExpression}) $$`;
+    resultadoResumido.innerHTML += `Valor do Campo Elétrico nos pontos X, Y e Z.`;
+    resultadoResumido.innerHTML += `$$ \\overrightarrow{E}=(${resultadoE}) $$`;
 }
 
 
