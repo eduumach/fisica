@@ -4,12 +4,12 @@ const quadro32 = document.getElementById("campos_entrada2")
 select32.addEventListener("change", (event) => {
     if (select32.value == "Positivo" || select32.value == "Negativo") {
         quadro32.innerHTML = `
-        <span>d - distância</span>
-        <input class="entradaNumeros" type="string" id="D32" step="0.01" required>
-        <span>Q1 - Carga 1</span>
-        <input class="entradaNumeros" type="string" id="Q132" step="0.01" required>
-        <span>Q2 - Carga 2</span>
-        <input class="entradaNumeros" type="string" id="Q232" step="0.01" required>
+        <span>d - Distância (m)</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="D32" step="0.01" required>
+        <span>Q1 - Carga 1 (C)</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q132" step="0.01" required>
+        <span>Q2 - Carga 2 (C)</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q232" step="0.01" required>
         <div class="buttons" onclick="calcular3_2()">Calcular</div>
         `
     }
@@ -51,8 +51,8 @@ function posicaoPositiva(d, Q1, Q2) {
     resultadoCompleto.innerHTML += `$$ x=\\frac{${Q1_base10} \\cdot ${d_base10}}{${Q1_base10}+${Q2_base10}} $$`;
     const resultado = (Q1 * d) / (Q1 + Q2);
     const resultado_base10 = transformToScientificNotation(resultado);
-    resultadoCompleto.innerHTML += `$$ x=${resultado_base10}$$`;
-    resultadoResumido.innerHTML += `$$ x=${resultado_base10}$$`;
+    resultadoCompleto.innerHTML += `$$ x=${resultado_base10} m$$`;
+    resultadoResumido.innerHTML += `$$ x=${resultado_base10} m$$`;
 }
 
 function posicaoNegativa(d, Q1, Q2) {
@@ -84,8 +84,8 @@ function posicaoNegativa(d, Q1, Q2) {
     resultadoCompleto.innerHTML += `$$ x=\\frac{${Q1_base10} \\cdot ${d_base10}}{${Q1_base10}-${Q2_base10}} $$`;
     const resultado = (Q1 * d) / (Q1 - Q2);
     const resultado_base10 = transformToScientificNotation(resultado);
-    resultadoCompleto.innerHTML += `$$ x=${resultado_base10}$$`;
-    resultadoResumido.innerHTML += `$$ x=${resultado_base10}$$`;
+    resultadoCompleto.innerHTML += `$$ x=${resultado_base10} m$$`;
+    resultadoResumido.innerHTML += `$$ x=${resultado_base10} m$$`;
 }
 
 

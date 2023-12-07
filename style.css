@@ -69,7 +69,9 @@ body {
     margin: 10px;
     user-select: none;
     color: white;
+    text-align: center;
 }
+
 
 .resultados {
     display: flex;

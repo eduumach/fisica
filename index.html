@@ -12,9 +12,9 @@
         <span id="tituloPagina">Campo Elétrico (distribuição contínua de carga)</span>
         <span id="subtituloPagina">Escolha um problema: </span>
         <div class="problemas">
-            <div class="buttons" onclick="selecionarSistema(1)">Sistema 3.1</div>
-            <div class="buttons" onclick="selecionarSistema(2)">Sistema 3.2</div>
-            <div class="buttons" onclick="selecionarSistema(3)">Sistema 3.3</div>
+            <div class="buttons" onclick="selecionarSistema(1)">Potencial eletrico no ponto</div>
+            <div class="buttons" onclick="selecionarSistema(2)">Duas cargas fixas, encontre o valor do ponto x</div>
+            <div class="buttons" onclick="selecionarSistema(3)">Campo elétrico a partir do pontencial</div>
         </div>
         <!-- Sistema 1 -->
         <div class="sistemas" id="sistema3_1">
@@ -36,7 +36,7 @@
         <!-- Sistema 2 -->
         <div class="sistemas" id="sistema3_2">
             <div class="sistemaInfo">
-                <span class="titulo">Sistema 3.2</span>
+                <span class="titulo"></span>
                 <img src="./imgs/sistema21.png" class="imagemSistema">
             </div>
             <div class="entradas">
@@ -52,7 +52,7 @@
         <!-- Sistema 2 -->
         <div class="sistemas" id="sistema3_3">
             <div class="sistemaInfo">
-                <span class="titulo">Sistema 3.3</span>
+                <span class="titulo">Campo elétrico a partir do pontencial</span>
                 <img src="./imgs/sistema21.png" class="imagemSistema">
             </div>
             <div class="entradas">
@@ -60,14 +60,14 @@
                     
                 </select> -->
                 <div class="campos_entrada" id="campos_entrada3">
-                    <span>Formula: </span>
-                    <input class="entradaNumeros" type="string" id="formula3_3" step="0.01">
-                    <span>x - ...</span>
-                    <input class="entradaNumeros" type="string" id="X3_3" step="0.01">
-                    <span>y - ...</span>
-                    <input class="entradaNumeros" type="string" id="Y3_3" step="0.01">
-                    <span>z - ...</span>
-                    <input class="entradaNumeros" type="string" id="Z3_3" step="0.01">
+                    <span>Formulas</span>
+                    <input class="entradaNumeros" type="string" placeholder="Ex: 3x^2-2y+z" id="formula3_3" step="0.01">
+                    <span>x - Ponto da reta</span>
+                    <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="X3_3" step="0.01">
+                    <span>y - Ponto da reta</span>
+                    <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="Y3_3" step="0.01">
+                    <span>z - Ponto da reta</span>
+                    <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="Z3_3" step="0.01">
                     <div class="buttons" onclick="calcular3_3()">Calcular</div>
                 </div>
             </div>

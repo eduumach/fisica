@@ -6,32 +6,32 @@ const quadro31 = document.getElementById("campos_entrada1");
 select31.addEventListener("change", (event) => {
     if (select31.value == "V") {
         quadro31.innerHTML = `
-        <span>K - Constante</span>
-        <input class="entradaNumeros" type="string" id="K31" step="0.01" required>
-        <span>Q - Carga total</span>
-        <input class="entradaNumeros" type="string" id="Q31" step="0.01" required>
-        <span>d - Distância</span>
-        <input class="entradaNumeros" type="string" id="d31" step="0.01" required>
+        <span>K - Constante [K: N m²/C²]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        <span>Q - Carga total [C]</span>
+        <input class="entradaNumeros" type="string" id="Q31" placeholder="Ex: 1.602*10^-19" step="0.01" required>
+        <span>d - Distância [m]</span>
+        <input class="entradaNumeros" type="string" id="d31" placeholder="Ex: 25" step="0.01" required>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
         `
     } else if (select31.value == "Q") {
         quadro31.innerHTML = `
-        <span>K - Constante</span>
-        <input class="entradaNumeros" type="string" id="K31" step="0.01" required>
-        <span>V - Diferença de potencial</span>
-        <input class="entradaNumeros" type="string" id="V31" step="0.01" required>
-        <span>d - Distância</span>
-        <input class="entradaNumeros" type="string" id="d31" step="0.01" required>
+        <span>K - Constante [K: N m²/C²]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        <span>V - Diferença de potencial [V]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 16" id="V31" step="0.01" required>
+        <span>d - Distância [m]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="d31" step="0.01" required>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
         `
     } else if (select31.value == "d") {
         quadro31.innerHTML = `
-        <span>K - Constante</span>
-        <input class="entradaNumeros" type="string" id="K31" step="0.01" required>
-        <span>V - Diferença de potencial</span>
-        <input class="entradaNumeros" type="string" id="V31" step="0.01" required>
-        <span>Q - Carga total</span>
-        <input class="entradaNumeros" type="string" id="Q31" step="0.01" required>
+        <span>K - Constante [K: N m²/C²]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        <span>V - Diferença de potencial [V]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 16"id="V31" step="0.01" required>
+        <span>Q - Carga total [C]</span>
+        <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q31" step="0.01" required>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
         `
     }
