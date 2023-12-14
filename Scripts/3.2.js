@@ -36,6 +36,7 @@ select32.addEventListener("change", (event) => {
             </select>
         </div>
         <div class="buttons" onclick="calcular3_2()">Calcular</div>
+        <div class="buttons" id="buttonMostrarVideo" onclick="mostrarVideo(2)">Explicação em video</div>
         `
     }
     else {

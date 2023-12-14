@@ -31,6 +31,7 @@ select31.addEventListener("change", (event) => {
             </select>
         </div>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
+        <div class="buttons" id="buttonMostrarVideo" onclick="mostrarVideo(1)">Explicação em video</div>
         `
     } else if (select31.value == "Q") {
         quadro31.innerHTML = `
@@ -59,6 +60,7 @@ select31.addEventListener("change", (event) => {
             </select>
         </div>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
+        <div class="buttons" id="buttonMostrarVideo" onclick="mostrarVideo(1)">Explicação em video</div>
         `
     } else if (select31.value == "d") {
         quadro31.innerHTML = `
@@ -80,6 +82,7 @@ select31.addEventListener("change", (event) => {
             </select>
         </div>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
+        <div class="buttons" id="buttonMostrarVideo" onclick="mostrarVideo(1)">Explicação em video</div>
         `
     }
     else {

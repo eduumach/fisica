@@ -9,7 +9,6 @@
 <body>
     <a class="buttons" id="voltarPaginaInicial" href="">Página Inicial</a>
     <div class="containerPrincipalSistemas">
-        <span id="tituloPagina">Campo Elétrico (distribuição contínua de carga)</span>
         <span id="subtituloPagina">Escolha um problema: </span>
         <div class="problemas">
             <div class="buttons" onclick="selecionarSistema(1)">Potencial eletrico no ponto</div>
@@ -19,7 +18,7 @@
         <!-- Sistema 1 -->
         <div class="sistemas" id="sistema3_1">
             <div class="sistemaInfo">
-                <span class="titulo">Sistema 3.1</span>
+                <span class="titulo">Potencial elétrico no ponto</span>
                 <img src="./imgs/sistema1.png" class="imagemSistema">
             </div>
             <div class="entradas">
@@ -36,7 +35,7 @@
         <!-- Sistema 2 -->
         <div class="sistemas" id="sistema3_2">
             <div class="sistemaInfo">
-                <span class="titulo"></span>
+                <span class="titulo">Pontencial eletrico com duas cargas fixas</span>
                 <img src="./imgs/sistema2.jpg" class="imagemSistema">
             </div>
             <div class="entradas">
@@ -69,9 +68,15 @@
                     <span>z - Ponto da reta</span>
                     <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="Z3_3" step="0.01">
                     <div class="buttons" onclick="calcular3_3()">Calcular</div>
+                    <div class="buttons" id="buttonMostrarVideo" onclick="mostrarVideo(3)">Explicação em video</div>
                 </div>
             </div>
         </div>
+        <span class="aulas" id="aulasContainer">
+            <span class="subtituloPagina">Aula explicativa</span>
+            <div id="aulasVideo"></div>
+            <br>
+        </span>
         <!-- ISSO EH PARA TODOS NAO PARA CADA SISTEMA CARALHO -->
         <div class="resultados">
             <span class="resultado_resumido"></span>
