@@ -26,17 +26,22 @@ function converterParaNotacao10x(numero) {
 }
 
 function mostrarCalculos() {
-    document.querySelector(".resultado_completo").style.display = "block"
+    if (document.querySelector(".resultado_completo").style.display == "none") {
+        document.querySelector(".resultado_completo").style.display = "block"
+        document.querySelector("#mostrarButton").innerHTML = 'Ocultar Cálculos'
+    } else {
+        document.querySelector(".resultado_completo").style.display = "none"
+        document.querySelector("#mostrarButton").innerHTML = 'Mostrar Cálculos'
+    }
 }
 
 function transformToScientificNotation(number) {
+    console.log(number);
     const numericValue = Number(number);
     if (isNaN(numericValue)) {
         return 'Invalid number';
-    } else if (Number.isInteger(numericValue) && (numericValue > -1000 && numericValue < 1000)) {
+    } else if (Number.isInteger(numericValue) && numericValue > -1000 && numericValue < 1000) {
         return numericValue.toString();
-    } else if (numericValue > -1000 && numericValue < 1000) {
-        return math.format(numericValue, { notation: 'fixed', precision: 5 });
     }
 
     const scientificNotation = math.format(numericValue, { notation: 'exponential', precision: 3 });
@@ -47,4 +52,8 @@ function transformToScientificNotation(number) {
     const latexString = `${mantissa} \\cdot 10^{${n}}`;
 
     return latexString;
+}
+
+function isNegative(number) {
+    return number < 0;
 }

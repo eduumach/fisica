@@ -1,27 +1,63 @@
 const select31 = document.getElementById("choose3.1");
 const resultadoResumido = document.querySelector(".resultado_resumido");
-const resultadoCompleto = document.querySelector(".resultado_completo");
+let resultadoCompleto = document.querySelector(".resultado_completo");
 const quadro31 = document.getElementById("campos_entrada1");
 
 select31.addEventListener("change", (event) => {
     if (select31.value == "V") {
         quadro31.innerHTML = `
         <span>K - Constante [K: N m²/C²]</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        </div>
         <span>Q - Carga total [C]</span>
-        <input class="entradaNumeros" type="string" id="Q31" placeholder="Ex: 1.602*10^-19" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q31" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_31Q">
+                <option value="C">C</option>
+                <option value="mC">mC</option>
+                <option value="µC">µC</option>
+                <option value="nC">nC</option>
+                <option value="pC">pC</option>
+            </select>
+        </div>
         <span>d - Distância [m]</span>
-        <input class="entradaNumeros" type="string" id="d31" placeholder="Ex: 25" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="d31" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_31D">
+                <option value="m">m</option>
+                <option value="cm">cm</option>
+                <option value="mm">mm</option>
+            </select>
+        </div>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
         `
     } else if (select31.value == "Q") {
         quadro31.innerHTML = `
         <span>K - Constante [K: N m²/C²]</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
+        </div>
         <span>V - Diferença de potencial [V]</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 16" id="V31" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 16" id="V31" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_31V">
+                <option value="C">C</option>
+                <option value="mC">mC</option>
+                <option value="µC">µC</option>
+                <option value="nC">nC</option>
+                <option value="pC">pC</option>
+            </select>
+        </div>
         <span>d - Distância [m]</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="d31" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="d31" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_31D">
+                <option value="m">m</option>
+                <option value="cm">cm</option>
+                <option value="mm">mm</option>
+            </select>
+        </div>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
         `
     } else if (select31.value == "d") {
@@ -29,9 +65,20 @@ select31.addEventListener("change", (event) => {
         <span>K - Constante [K: N m²/C²]</span>
         <input class="entradaNumeros" type="string" placeholder="Ex: 9*10^9" id="K31" step="0.01" required>
         <span>V - Diferença de potencial [V]</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 16"id="V31" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 16"id="V31" step="0.01" required>
+        </div>        
         <span>Q - Carga total [C]</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q31" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q31" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_31Q">
+                <option value="C">C</option>
+                <option value="mC">mC</option>
+                <option value="µC">µC</option>
+                <option value="nC">nC</option>
+                <option value="pC">pC</option>
+            </select>
+        </div>
         <div class="buttons" onclick="calcular3_1()">Calcular</div>
         `
     }
@@ -98,17 +145,25 @@ function calcular3_1() {
 
     if (select31.value == "V") {
         let K = math.evaluate(document.getElementById("K31").value);
-        let Q = math.evaluate(document.getElementById("Q31").value);
-        let d = math.evaluate(document.getElementById("d31").value);
+        let Q = conversorCoulomb(document.getElementById("tipo_entrada_31Q").value, math.evaluate(document.getElementById("Q31").value));
+        let d = conversorDistancia(document.getElementById("tipo_entrada_31D").value, math.evaluate(document.getElementById("d31").value));
+        if (isNegative(d)){
+            resultadoResumido.innerHTML += `<p>Não pode ter distância negativa, por isso convertemos para positiva.</p>`
+        }
+        d = math.abs(d);
         diferencaPotencial(K, Q, d);
     } else if (select31.value == "Q") {
         let K = math.evaluate(document.getElementById("K31").value);
-        let d = math.evaluate(document.getElementById("d31").value);
-        let V = math.evaluate(document.getElementById("V31").value);
+        let d = conversorDistancia(document.getElementById("tipo_entrada_31D").value, math.evaluate(document.getElementById("d31").value));
+        let V = conversorCoulomb(document.getElementById("tipo_entrada_31V").value, math.evaluate(document.getElementById("V31").value));
+        if (isNegative(d)){
+            resultadoResumido.innerHTML += `<p>Não pode ter distância negativa, por isso convertemos para positiva.</p>`
+        }
+        d = math.abs(d);
         cargaTotal(K, V, d);
     } else if (select31.value == "d") {
         let K = math.evaluate(document.getElementById("K31").value);
-        let Q = math.evaluate(document.getElementById("Q31").value);
+        let Q = conversorCoulomb(document.getElementById("tipo_entrada_31Q").value, math.evaluate(document.getElementById("Q31").value));
         let V = math.evaluate(document.getElementById("V31").value);
         distancia(K, V, Q);
     } else {

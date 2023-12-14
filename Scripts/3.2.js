@@ -5,11 +5,36 @@ select32.addEventListener("change", (event) => {
     if (select32.value == "Positivo" || select32.value == "Negativo") {
         quadro32.innerHTML = `
         <span>d - Distância (m)</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="D32" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 25" id="D32" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_32D">
+                <option value="m">m</option>
+                <option value="cm">cm</option>
+                <option value="mm">mm</option>
+            </select>
+        </div>
         <span>Q1 - Carga 1 (C)</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q132" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q132" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_32Q1">
+                <option value="C">C</option>
+                <option value="mC">mC</option>
+                <option value="µC">µC</option>
+                <option value="nC">nC</option>
+                <option value="pC">pC</option>
+            </select>
+        </div>
         <span>Q2 - Carga 2 (C)</span>
-        <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q232" step="0.01" required>
+        <div class="entradasContainer">
+            <input class="entradaNumeros" type="string" placeholder="Ex: 1.602*10^-19" id="Q232" step="0.01" required>
+            <select class="tipoInput" id="tipo_entrada_32Q2">
+                <option value="C">C</option>
+                <option value="mC">mC</option>
+                <option value="µC">µC</option>
+                <option value="nC">nC</option>
+                <option value="pC">pC</option>
+            </select>
+        </div>
         <div class="buttons" onclick="calcular3_2()">Calcular</div>
         `
     }
@@ -88,7 +113,13 @@ function posicaoNegativa(d, Q1, Q2) {
     resultadoCompleto.innerHTML += `$$ x=${resultado_base10} m$$`;
     resultadoResumido.innerHTML += `$$ x=${resultado_base10} m$$`;
     resultadoResumido.innerHTML += `<p>O resultado encontrado para a equação Negativa é o valor encontrado a cima do ponto.</p>`
-
+    console.log(resultado);
+    console.log(typeof resultado);
+    console.log(Number.isFinite(resultado));
+    if (Number.isFinite(resultado) === false) {
+        resultadoResumido.innerHTML = `<p>O resultado da equação é indeterminado, pois a carga 1 e a carga 2 são iguais.</p>`
+        resultadoCompleto.innerHTML = `<p>O resultado da equação é indeterminado, pois a carga 1 e a carga 2 são iguais.</p>`
+    }
 }
 
 
@@ -96,14 +127,16 @@ function posicaoNegativa(d, Q1, Q2) {
 function calcular3_2() {
     resultadoCompleto.innerHTML = "";
     resultadoResumido.innerHTML = "";
-    let d = math.evaluate(document.getElementById("D32").value);
-    let Q1 = math.evaluate(document.getElementById("Q132").value);
-    let Q2 = math.evaluate(document.getElementById("Q232").value);
+    let d = conversorDistancia(document.getElementById("tipo_entrada_32D").value, math.evaluate(document.getElementById("D32").value));
+    let Q1 = conversorCoulomb(document.getElementById("tipo_entrada_32Q1").value, math.evaluate(document.getElementById("Q132").value));
+    let Q2 = conversorCoulomb(document.getElementById("tipo_entrada_32Q2").value, math.evaluate(document.getElementById("Q232").value));
     console.log(d, Q1, Q2);
+    if (isNegative(d)){
+        resultadoResumido.innerHTML += `<p>Não pode ter distância negativa, por isso convertemos para positiva.</p>`;
+    }
     d = math.abs(d);
     Q1 = math.abs(Q1);
     Q2 = math.abs(Q2);
-
     resultadoResumido.innerHTML += `Quando somamos o modulo do Potencial da Carga 1 mais o modulo do Potencial da Carga 2, chegamos a uma equação com duas soluções, uma positiva e uma negativa.`;
     if (select32.value == "Positivo") {
         posicaoPositiva(d, Q1, Q2);

@@ -11,8 +11,19 @@ body {
     overflow-x: hidden;
 }
 
+main{
+    margin: auto;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-end;
+}
+
 #voltarPaginaInicial {
-    position: flex;
+    position: absolute;
     top: 0; left: 0;
     margin: 20px;
     width: 10%;
@@ -24,30 +35,35 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 
-#tituloPagina {
-    font-size: 3em;
+.tituloPagina {
+    font-size: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
 }
-#subtituloPagina {
+
+.subtituloPagina {
     font-size: 1.5em;
     margin-bottom: 15px;
+    padding-left: 5em;
+    padding-right: 5em;
 }
 
 .problemas {
     display: flex;
     width: 70vw;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 .sistemas {
     display: none;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: flex-start;
 }
 
 .campos_entrada {
@@ -62,16 +78,14 @@ body {
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     font-size: 1.2em;
     padding: 10px 15px;
     cursor: pointer;
     margin: 10px;
     user-select: none;
     color: white;
-    text-align: center;
 }
-
 
 .resultados {
     display: flex;
@@ -85,6 +99,17 @@ body {
     display: none;
 }
 
+.tipoInput {
+    width: auto;
+    border-radius: 7px;
+    padding: 5px;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Quantico', sans-serif;
+    text-align: center;
+}
 
 /* Scroll */
 body::-webkit-scrollbar {
@@ -120,6 +145,10 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
+.entradas{
+    padding-top: 20px;
+}
+
 input[type="number"]::-webkit-inner-spin-button {
     display: none;
 }
@@ -133,13 +162,23 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 20px;
 }
 
+.textos{
+    width: 15rem;
+}
+
 .titulo {
     font-size: 1.5em;
     margin: 10px;
 }
 
 .imagemSistema {
-    width: 25vw;
+    width: 20vw;
     border: 2px dashed #8E12DF;
     border-radius: 10px;
+}
+
+.aulas{
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
